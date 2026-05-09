@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Knossen Webdesign — moderne, snelle websites voor ondernemers en kleine bedrijven in Nederland. Persoonlijk, betrouwbaar en van A tot Z ontzorgd.">
+  <title>Knossen Webdesign — Moderne websites voor ondernemers</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --olive: #6b7e3e;
+      --olive-dark: #4f5e2e;
+      --olive-deep: #3a4623;
+      --olive-soft: #e8ecd4;
+      --olive-tint: #f0f3e2;
+
+      --sand: #f5efe5;
+      --sand-light: #faf6ee;
+      --cream: #fbf7f0;
+
+      --anthracite: #2b2b2b;
+      --anthracite-soft: #4a4a4a;
+      --gray-mid: #7a766c;
+      --gray-soft: #a8a294;
+      --border: #e0d8c8;
+      --border-soft: #ebe3d2;
+
+      --terracotta: #c1745a;
+      --terracotta-dark: #a65a42;
+      --terracotta-soft: #f3e0d4;
+
+      --white: #ffffff;
+
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: 'Fraunces', 'Inter', Georgia, serif;
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+
+      --shadow-md: 0 4px 14px rgba(43,43,43,.07);
+      --shadow-lg: 0 14px 44px rgba(43,43,43,.09);
+      --shadow-terra: 0 8px 22px rgba(193,116,90,.32);
+
+      --container: min(1180px, 92vw);
+      --section-pad: clamp(72px, 10vw, 120px);
+      --ease: cubic-bezier(.4, 0, .2, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--anthracite);
+      background: var(--sand);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    .container { width: var(--container); margin: 0 auto; }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      letter-spacing: -.015em;
+      line-height: 1.15;
+      color: var(--anthracite);
+      font-weight: 600;
+    }
+    .h1 { font-size: clamp(2.4rem, 5.4vw, 4.2rem); font-weight: 600; letter-spacing: -.025em; }
+    .h2 { font-size: clamp(1.9rem, 3.6vw, 2.7rem); font-weight: 600; }
+    .h3 { font-size: 1.25rem; font-weight: 600; }
+    .lead { font-size: clamp(1rem, 1.4vw, 1.12rem); color: var(--anthracite-soft); line-height: 1.65; font-family: var(--font-body); }
+
+    /* NAVBAR */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 14px 0;
+      transition: background .35s var(--ease), box-shadow .35s var(--ease), padding .35s var(--ease);
+    }
+    .nav.scrolled {
+      background: rgba(245,239,229,.88);
+      backdrop-filter: saturate(180%) blur(16px);
+      -webkit-backdrop-filter: saturate(180%) blur(16px);
+      box-shadow: 0 1px 0 var(--border-soft);
+      padding: 10px 0;
+    }
+    .nav-inner { width: var(--container); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo img { height: 44px; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 6px; }
+    .nav-links a {
+      font-size: .92rem; font-weight: 500; color: var(--anthracite-soft);
+      padding: 8px 14px; border-radius: var(--radius-sm);
+      transition: color .2s var(--ease), background .2s var(--ease);
+    }
+    .nav-links a:hover { color: var(--anthracite); background: var(--olive-soft); }
+    .nav-cta {
+      margin-left: 8px; padding: 10px 20px !important;
+      background: var(--terracotta); color: var(--white) !important;
+      border-radius: 100px; font-weight: 600;
+      transition: background .25s var(--ease), transform .15s var(--ease);
+    }
+    .nav-cta:hover { background: var(--terracotta-dark) !important; color: var(--white) !important; transform: translateY(-1px); }
+
+    .nav-toggle { display: none; width: 40px; height: 40px; border-radius: 10px; align-items: center; justify-content: center; }
+    .nav-toggle svg { width: 22px; height: 22px; stroke: var(--anthracite); }
+
+    /* HERO */
+    .hero {
+      position: relative; padding: 140px 0 var(--section-pad); overflow: hidden;
+      background:
+        radial-gradient(ellipse at 80% 0%, rgba(107,126,62,.08) 0%, transparent 55%),
+        radial-gradient(ellipse at 0% 70%, rgba(193,116,90,.06) 0%, transparent 55%),
+        var(--sand);
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 4rem; align-items: center; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; background: var(--olive-soft); color: var(--olive-dark);
+      border-radius: 100px; font-size: .82rem; font-weight: 600; margin-bottom: 24px;
+    }
+    .hero-tag-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--olive);
+      box-shadow: 0 0 0 3px rgba(107,126,62,.25); animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 3px rgba(107,126,62,.25); }
+      50% { box-shadow: 0 0 0 6px rgba(107,126,62,0); }
+    }
+    .hero h1 .accent { color: var(--terracotta); font-style: italic; font-weight: 500; }
+    .hero p.lead { margin: 24px 0 32px; max-width: 520px; }
+    .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 26px; border-radius: 100px;
+      font-size: .95rem; font-weight: 600;
+      transition: all .22s var(--ease); font-family: var(--font-body);
+    }
+    .btn-primary { background: var(--terracotta); color: var(--white); box-shadow: var(--shadow-terra); }
+    .btn-primary:hover { background: var(--terracotta-dark); transform: translateY(-2px); box-shadow: 0 12px 28px rgba(193,116,90,.4); }
+    .btn-secondary { background: var(--white); color: var(--anthracite); border: 1.5px solid var(--border); }
+    .btn-secondary:hover { border-color: var(--anthracite); transform: translateY(-2px); }
+    .btn svg { width: 16px; height: 16px; stroke-width: 2.5; }
+
+    .hero-trust {
+      display: flex; align-items: center; gap: 26px;
+      margin-top: 38px; padding-top: 28px;
+      border-top: 1px solid var(--border-soft); flex-wrap: wrap;
+    }
+    .hero-trust-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: .88rem; color: var(--anthracite-soft); font-weight: 500;
+    }
+    .hero-trust-icon {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--olive-soft); color: var(--olive-dark);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-trust-icon svg { width: 12px; height: 12px; stroke-width: 3; }
+
+    .hero-visual { position: relative; perspective: 1500px; }
+    .browser {
+      background: var(--white); border-radius: var(--radius-lg);
+      box-shadow: 0 30px 70px rgba(43,43,43,.13), 0 4px 12px rgba(43,43,43,.05);
+      overflow: hidden; border: 1px solid var(--border-soft);
+      transform: rotateY(-8deg) rotateX(4deg);
+      transition: transform .6s var(--ease);
+    }
+    .browser:hover { transform: rotateY(-4deg) rotateX(2deg); }
+    .browser-bar {
+      display: flex; align-items: center; gap: 6px;
+      padding: 12px 16px; background: var(--cream);
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .browser-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--gray-soft); }
+    .browser-dot:nth-child(1) { background: #FF5F57; }
+    .browser-dot:nth-child(2) { background: #FEBC2E; }
+    .browser-dot:nth-child(3) { background: #28C840; }
+    .browser-url {
+      flex: 1; margin-left: 12px; padding: 5px 12px;
+      background: var(--white); border-radius: 6px; font-size: .72rem;
+      color: var(--gray-mid); border: 1px solid var(--border-soft);
+    }
+    .browser-content { padding: 28px; }
+    .mock-hero {
+      height: 110px; border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--olive) 0%, var(--olive-dark) 100%);
+      position: relative; overflow: hidden; margin-bottom: 18px;
+    }
+    .mock-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 80% 30%, rgba(255,255,255,.18) 0%, transparent 50%);
+    }
+    .mock-hero-text { position: absolute; left: 18px; top: 22px; }
+    .mock-hero-text-1 { width: 130px; height: 10px; background: rgba(255,255,255,.9); border-radius: 3px; }
+    .mock-hero-text-2 { width: 90px; height: 7px; background: rgba(255,255,255,.55); border-radius: 3px; margin-top: 8px; }
+    .mock-hero-btn {
+      position: absolute; left: 18px; bottom: 22px;
+      width: 70px; height: 22px; background: var(--terracotta); border-radius: 100px;
+    }
+    .mock-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+    .mock-card {
+      height: 70px; background: var(--cream); border-radius: var(--radius-sm);
+      position: relative; padding: 12px; border: 1px solid var(--border-soft);
+    }
+    .mock-card::before {
+      content: ''; width: 22px; height: 22px;
+      background: var(--olive-soft); border-radius: 6px; display: block;
+    }
+    .mock-card::after {
+      content: ''; position: absolute;
+      bottom: 12px; left: 12px; right: 12px;
+      height: 4px; background: var(--border); border-radius: 2px;
+    }
+
+    .float-card {
+      position: absolute; background: var(--white);
+      border-radius: var(--radius-md); padding: 12px 16px;
+      box-shadow: var(--shadow-lg);
+      display: flex; align-items: center; gap: 10px;
+      font-size: .82rem; font-weight: 600; color: var(--anthracite);
+      animation: float 4s ease-in-out infinite;
+    }
+    .float-card-1 { top: 18%; left: -8%; animation-delay: 0s; }
+    .float-card-2 { bottom: 12%; right: -6%; animation-delay: 1.2s; }
+    .float-card-icon {
+      width: 32px; height: 32px;
+      background: var(--olive-soft); color: var(--olive-dark);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .float-card-icon svg { width: 16px; height: 16px; }
+    .float-card-2 .float-card-icon { background: var(--terracotta-soft); color: var(--terracotta-dark); }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* SECTION */
+    .section { padding: var(--section-pad) 0; }
+    .section-head { text-align: center; max-width: 640px; margin: 0 auto 64px; }
+    .section-eyebrow {
+      display: inline-block; padding: 5px 14px;
+      background: var(--olive-soft); color: var(--olive-dark);
+      border-radius: 100px; font-size: .78rem; font-weight: 700;
+      letter-spacing: .04em; text-transform: uppercase; margin-bottom: 16px;
+    }
+    .section-head h2 { margin-bottom: 14px; }
+
+    /* WHY */
+    .why { background: var(--sand-light); }
+    .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .why-card {
+      background: var(--white); border-radius: var(--radius-lg); padding: 28px;
+      transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+      border: 1px solid var(--border-soft);
+    }
+    .why-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--olive-soft); }
+    .why-icon {
+      width: 48px; height: 48px;
+      background: var(--olive-soft); color: var(--olive-dark);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+      transition: background .3s var(--ease), color .3s var(--ease);
+    }
+    .why-card:hover .why-icon { background: var(--olive); color: var(--white); }
+    .why-icon svg { width: 22px; height: 22px; stroke-width: 2; }
+    .why-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .why-card p { font-size: .9rem; color: var(--anthracite-soft); line-height: 1.6; }
+
+    /* DIENSTEN */
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .service-card {
+      position: relative; background: var(--white);
+      border: 1.5px solid var(--border-soft); border-radius: var(--radius-xl);
+      padding: 32px; transition: all .35s var(--ease);
+      display: flex; flex-direction: column;
+    }
+    .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--olive-soft); }
+    .service-card.featured { background: var(--anthracite); border-color: var(--anthracite); color: var(--white); }
+    .service-card.featured h3 { color: var(--white); }
+    .service-card.featured .service-name { color: var(--terracotta-soft); }
+    .service-card.featured .service-desc { color: rgba(255,255,255,.7); }
+    .service-card.featured .service-feature { color: rgba(255,255,255,.88); }
+    .service-card.featured .service-feature-icon { background: rgba(193,116,90,.2); color: var(--terracotta-soft); }
+    .service-badge {
+      position: absolute; top: -12px; right: 24px;
+      background: var(--terracotta); color: var(--white);
+      padding: 6px 14px; border-radius: 100px;
+      font-size: .72rem; font-weight: 700; letter-spacing: .03em; text-transform: uppercase;
+      box-shadow: var(--shadow-terra);
+    }
+    .service-name {
+      font-size: .82rem; font-weight: 700; color: var(--terracotta);
+      letter-spacing: .04em; text-transform: uppercase; margin-bottom: 8px;
+    }
+    .service-card h3 { font-size: 1.65rem; margin-bottom: 10px; letter-spacing: -.02em; }
+    .service-desc { color: var(--anthracite-soft); font-size: .92rem; margin-bottom: 24px; min-height: 44px; }
+    .service-features { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; flex: 1; }
+    .service-feature { display: flex; gap: 10px; align-items: flex-start; font-size: .92rem; color: var(--anthracite); }
+    .service-feature-icon {
+      flex-shrink: 0; width: 20px; height: 20px;
+      background: var(--olive-soft); color: var(--olive-dark);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 2px;
+    }
+    .service-feature-icon svg { width: 11px; height: 11px; stroke-width: 3; }
+    .service-cta {
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+      width: 100%; padding: 13px 20px;
+      background: var(--cream); color: var(--anthracite);
+      border-radius: 100px; font-weight: 600; font-size: .92rem;
+      transition: all .22s var(--ease); border: 1px solid var(--border-soft);
+    }
+    .service-cta:hover { background: var(--terracotta); color: var(--white); border-color: var(--terracotta); }
+    .service-card.featured .service-cta { background: var(--terracotta); color: var(--white); border-color: var(--terracotta); }
+    .service-card.featured .service-cta:hover { background: var(--terracotta-dark); border-color: var(--terracotta-dark); }
+    .service-cta svg { width: 14px; height: 14px; transition: transform .22s var(--ease); }
+    .service-cta:hover svg { transform: translateX(3px); }
+
+    .services-note { text-align: center; margin-top: 32px; font-size: .9rem; color: var(--gray-mid); }
+
+    /* PROCES */
+    .proces { background: var(--sand-light); }
+    .proces-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; position: relative; }
+    .proces-grid::before {
+      content: ''; position: absolute;
+      top: 32px; left: 12.5%; right: 12.5%;
+      height: 2px;
+      background: linear-gradient(to right, var(--olive) 0%, var(--terracotta) 50%, var(--gray-soft) 100%);
+      z-index: 0; opacity: .4;
+    }
+    .proces-step { text-align: center; position: relative; z-index: 1; }
+    .proces-num {
+      display: flex; align-items: center; justify-content: center;
+      width: 64px; height: 64px;
+      background: var(--white); border: 2px solid var(--olive); color: var(--olive-dark);
+      border-radius: 50%;
+      font-family: var(--font-display); font-weight: 700; font-size: 1.5rem;
+      margin: 0 auto 20px;
+      transition: all .3s var(--ease);
+    }
+    .proces-step:hover .proces-num { background: var(--olive); color: var(--white); transform: scale(1.06); }
+    .proces-step h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .proces-step p { font-size: .88rem; color: var(--anthracite-soft); line-height: 1.55; max-width: 220px; margin: 0 auto; }
+
+    /* OVER MIJ */
+    .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 64px; align-items: center; }
+    .about-photo-wrap { position: relative; }
+    .about-photo {
+      aspect-ratio: 4/5; border-radius: var(--radius-xl);
+      overflow: hidden; background: var(--olive-soft);
+      box-shadow: var(--shadow-lg);
+      position: relative; z-index: 1;
+    }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; }
+    .about-photo-deco {
+      position: absolute; width: 70%; height: 70%;
+      background: var(--olive-soft); border-radius: var(--radius-xl);
+      bottom: -22px; right: -22px; z-index: 0;
+    }
+    .about-meta {
+      position: absolute; bottom: 20px; left: 20px; right: 20px;
+      background: rgba(255,255,255,.95); backdrop-filter: blur(10px);
+      padding: 14px 18px; border-radius: var(--radius-md);
+      display: flex; align-items: center; gap: 12px;
+      z-index: 2;
+    }
+    .about-meta-icon {
+      width: 38px; height: 38px;
+      background: var(--olive); color: var(--white);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .about-meta-icon svg { width: 18px; height: 18px; }
+    .about-meta-name { font-weight: 700; font-size: .95rem; }
+    .about-meta-role { font-size: .78rem; color: var(--gray-mid); }
+
+    .about-text h2 { margin-bottom: 20px; }
+    .about-text p { color: var(--anthracite-soft); font-size: 1rem; line-height: 1.7; margin-bottom: 16px; }
+    .about-text strong { color: var(--anthracite); font-weight: 600; }
+    .about-quote {
+      margin-top: 28px; padding: 20px 24px;
+      background: var(--olive-soft);
+      border-left: 3px solid var(--olive);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      font-family: var(--font-display);
+      font-style: italic; font-size: 1.05rem;
+      color: var(--olive-deep); font-weight: 500; line-height: 1.5;
+    }
+
+    /* CTA BAND */
+    .cta-band { padding: 60px 0; background: var(--olive-deep); position: relative; overflow: hidden; }
+    .cta-band::before {
+      content: ''; position: absolute;
+      top: -50%; right: -10%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(193,116,90,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-band-inner {
+      position: relative; z-index: 1;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 40px; flex-wrap: wrap;
+    }
+    .cta-band h2 { color: var(--white); margin-bottom: 6px; }
+    .cta-band p { color: rgba(255,255,255,.72); }
+    .cta-band .btn-primary { background: var(--terracotta); color: var(--white); }
+    .cta-band .btn-primary:hover { background: var(--terracotta-dark); }
+
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; }
+    .contact-info-card {
+      background: var(--anthracite); color: var(--white);
+      border-radius: var(--radius-xl); padding: 36px;
+      position: relative; overflow: hidden;
+    }
+    .contact-info-card::before {
+      content: ''; position: absolute;
+      top: -20%; right: -20%;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(193,116,90,.22) 0%, transparent 70%);
+    }
+    .contact-info-card h3 { color: var(--white); font-size: 1.5rem; margin-bottom: 8px; position: relative; }
+    .contact-info-card > p { color: rgba(255,255,255,.72); font-size: .92rem; margin-bottom: 28px; position: relative; }
+    .contact-info-list { display: flex; flex-direction: column; gap: 22px; position: relative; margin-bottom: 32px; }
+    .contact-item { display: flex; gap: 14px; align-items: flex-start; }
+    .contact-item-icon {
+      flex-shrink: 0; width: 40px; height: 40px;
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--terracotta-soft);
+    }
+    .contact-item-icon svg { width: 18px; height: 18px; }
+    .contact-item-label {
+      font-size: .76rem; color: rgba(255,255,255,.5);
+      margin-bottom: 2px; text-transform: uppercase; letter-spacing: .04em;
+    }
+    .contact-item-value {
+      font-weight: 500; font-size: .95rem; color: var(--white);
+      transition: color .2s var(--ease); line-height: 1.5;
+    }
+    a.contact-item-value:hover { color: var(--terracotta-soft); }
+    .contact-item-sub {
+      display: block; font-size: .82rem; font-weight: 400;
+      color: rgba(255,255,255,.6); margin-top: 2px;
+    }
+    .contact-socials {
+      display: flex; gap: 10px; position: relative;
+      padding-top: 28px; border-top: 1px solid rgba(255,255,255,.1);
+    }
+    .contact-social {
+      width: 40px; height: 40px;
+      background: rgba(255,255,255,.06); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .2s var(--ease); color: var(--white);
+    }
+    .contact-social:hover { background: var(--terracotta); transform: translateY(-2px); }
+    .contact-social svg { width: 18px; height: 18px; }
+
+    .contact-form-wrap {
+      background: var(--white); border: 1px solid var(--border-soft);
+      border-radius: var(--radius-xl); padding: 36px;
+    }
+    .contact-form-wrap h3 { font-size: 1.5rem; margin-bottom: 6px; }
+    .contact-form-wrap > p { color: var(--anthracite-soft); font-size: .92rem; margin-bottom: 28px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .form-group { display: flex; flex-direction: column; }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-group label { font-size: .82rem; font-weight: 600; color: var(--anthracite); margin-bottom: 6px; }
+    .form-group input, .form-group select, .form-group textarea {
+      font-family: inherit; font-size: .95rem; color: var(--anthracite);
+      padding: 13px 16px; background: var(--white);
+      border: 1.5px solid var(--border); border-radius: var(--radius-md);
+      outline: none;
+      transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--gray-soft); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--olive);
+      box-shadow: 0 0 0 4px rgba(107,126,62,.14);
+    }
+    .form-group textarea { resize: vertical; min-height: 130px; }
+    .form-consent {
+      display: flex; gap: 10px; align-items: flex-start;
+      margin-bottom: 20px; font-size: .82rem; color: var(--anthracite-soft);
+    }
+    .form-consent input { margin-top: 3px; accent-color: var(--olive); }
+    .form-consent a { color: var(--terracotta-dark); text-decoration: underline; }
+    .btn-submit { width: 100%; justify-content: center; padding: 15px 26px; }
+    .form-success {
+      display: none; padding: 16px 18px;
+      background: var(--olive-soft); border: 1px solid var(--olive);
+      color: var(--olive-deep); border-radius: var(--radius-md);
+      font-size: .9rem; font-weight: 500;
+      align-items: center; gap: 10px;
+    }
+    .form-success.show { display: flex; }
+    .form-success svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    /* FOOTER */
+    .footer { background: var(--cream); border-top: 1px solid var(--border-soft); padding: 50px 0 24px; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-brand img { height: 52px; margin-bottom: 14px; }
+    .footer-brand p { font-size: .88rem; color: var(--anthracite-soft); max-width: 280px; line-height: 1.6; }
+    .footer-heading {
+      font-weight: 700; font-size: .82rem; color: var(--anthracite);
+      letter-spacing: .04em; text-transform: uppercase; margin-bottom: 14px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 8px; }
+    .footer-links a { font-size: .9rem; color: var(--anthracite-soft); transition: color .2s var(--ease); }
+    .footer-links a:hover { color: var(--terracotta-dark); }
+    .footer-bottom {
+      padding-top: 24px; border-top: 1px solid var(--border-soft);
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: .82rem; color: var(--gray-mid);
+      flex-wrap: wrap; gap: 12px;
+    }
+
+    /* WHATSAPP FAB */
+    .whatsapp-fab {
+      position: fixed; bottom: 24px; right: 24px;
+      width: 60px; height: 60px;
+      background: #25D366; color: var(--white);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 28px rgba(37,211,102,.4);
+      z-index: 90;
+      transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+    }
+    .whatsapp-fab:hover { transform: scale(1.08); box-shadow: 0 12px 36px rgba(37,211,102,.5); }
+    .whatsapp-fab::before {
+      content: ''; position: absolute; inset: 0;
+      border-radius: 50%; background: #25D366;
+      animation: wa-ring 2s ease-out infinite; z-index: -1;
+    }
+    @keyframes wa-ring {
+      0% { transform: scale(1); opacity: .5; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+    .whatsapp-fab svg { width: 30px; height: 30px; }
+
+    /* ANIM */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-stagger > * { transition-delay: calc(var(--i, 0) * 80ms); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 60px; }
+      .hero-visual { max-width: 480px; margin: 0 auto; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; }
+      .proces-grid { grid-template-columns: repeat(2, 1fr); gap: 36px; }
+      .proces-grid::before { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-photo-wrap { max-width: 420px; margin: 0 auto; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none; position: absolute;
+        top: 100%; left: 16px; right: 16px;
+        flex-direction: column; align-items: stretch;
+        background: var(--white); border: 1px solid var(--border-soft);
+        border-radius: var(--radius-md); padding: 12px;
+        box-shadow: var(--shadow-lg); gap: 4px; margin-top: 8px;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 14px; text-align: left; }
+      .nav-cta { text-align: center; }
+      .nav-toggle { display: flex; }
+      .hero { padding-top: 110px; }
+      .hero-buttons .btn { flex: 1; justify-content: center; }
+      .float-card { display: none; }
+      .hero-trust { gap: 16px; }
+      .why-grid { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .cta-band-inner { flex-direction: column; text-align: center; }
+      .contact-info-card, .contact-form-wrap { padding: 28px 22px; }
+      .whatsapp-fab { bottom: 18px; right: 18px; width: 54px; height: 54px; }
+      .whatsapp-fab svg { width: 26px; height: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <img src="logo.png" alt="Knossen Webdesign logo">
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#diensten">Diensten</a>
+        <a href="#over-mij">Over mij</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="nav-cta">Offerte aanvragen</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu openen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text reveal">
+          <span class="hero-tag">
+            <span class="hero-tag-dot"></span>
+            Beschikbaar voor nieuwe projecten
+          </span>
+          <h1 class="h1">Design dat klopt.<br><span class="accent">Resultaten</span> die tellen.</h1>
+          <p class="lead">Moderne websites die vertrouwen uitstralen en klanten opleveren. Van A tot Z ontzorgd — persoonlijk contact, eerlijke prijzen en altijd op tijd.</p>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">
+              Vraag offerte aan
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="#diensten" class="btn btn-secondary">Bekijk diensten</a>
+          </div>
+          <div class="hero-trust">
+            <div class="hero-trust-item">
+              <span class="hero-trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              Vrijblijvende offerte
+            </div>
+            <div class="hero-trust-item">
+              <span class="hero-trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              Ontwerp op maat
+            </div>
+            <div class="hero-trust-item">
+              <span class="hero-trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              Snelle levering
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="browser">
+            <div class="browser-bar">
+              <span class="browser-dot"></span>
+              <span class="browser-dot"></span>
+              <span class="browser-dot"></span>
+              <span class="browser-url">jouwbedrijf.nl</span>
+            </div>
+            <div class="browser-content">
+              <div class="mock-hero">
+                <div class="mock-hero-text">
+                  <div class="mock-hero-text-1"></div>
+                  <div class="mock-hero-text-2"></div>
+                </div>
+                <div class="mock-hero-btn"></div>
+              </div>
+              <div class="mock-row">
+                <div class="mock-card"></div>
+                <div class="mock-card"></div>
+                <div class="mock-card"></div>
+              </div>
+            </div>
+          </div>
+          <div class="float-card float-card-1">
+            <div class="float-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span>Mobielvriendelijk</span>
+          </div>
+          <div class="float-card float-card-2">
+            <div class="float-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <span>Snel geleverd</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section why">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-eyebrow">Waarom Knossen Webdesign</span>
+        <h2 class="h2">Wat mij anders maakt</h2>
+        <p class="lead">Vier redenen waarom ondernemers voor een persoonlijke aanpak kiezen.</p>
+      </div>
+      <div class="why-grid reveal-stagger">
+        <div class="why-card reveal" style="--i:0">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h3>Persoonlijk contact</h3>
+          <p>Korte lijntjes, direct met mij. Geen account managers, geen tussenpersonen. Eén aanspreekpunt van begin tot eind.</p>
+        </div>
+        <div class="why-card reveal" style="--i:1">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.8a1 1 0 0 0 .9.7l6.1.4-4.7 4a1 1 0 0 0-.3 1l1.5 5.9-5.1-3.4a1 1 0 0 0-1.1 0L6.1 20.8l1.5-5.9a1 1 0 0 0-.3-1l-4.7-4 6.1-.4a1 1 0 0 0 .9-.7L11.5 3"/></svg>
+          </div>
+          <h3>Moderne websites</h3>
+          <p>Strak ontwerp dat past bij jouw merk en doelgroep. Aandacht voor detail, een eigen look en een eigentijdse uitstraling.</p>
+        </div>
+        <div class="why-card reveal" style="--i:2">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <h3>Mobielvriendelijk</h3>
+          <p>Werkt perfect op telefoon, tablet en desktop. Geoptimaliseerd voor elk scherm — zoals jouw klanten dat verwachten.</p>
+        </div>
+        <div class="why-card reveal" style="--i:3">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>Snelle levering</h3>
+          <p>Binnen enkele weken een werkende website. Helder traject, duidelijke planning, geen verrassingen achteraf.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="diensten">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-eyebrow">Diensten</span>
+        <h2 class="h2">Een pakket dat bij jou past</h2>
+        <p class="lead">Of je nu net begint of je website naar een hoger niveau wilt tillen — er is altijd een passende oplossing.</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card reveal">
+          <span class="service-name">Starterspakket</span>
+          <h3>Voor ondernemers die snel online willen</h3>
+          <p class="service-desc">Een strakke, professionele website die direct vertrouwen wekt en klanten oplevert.</p>
+          <div class="service-features">
+            <div class="service-feature"><span class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Simpele, professionele website</div>
+            <div class="service-feature"><span class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Werkend contactformulier</div>
+            <div class="service-feature"><span class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Mobielvriendelijk ontwerp</div>
+            <div class="service-feature"><span class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>WhatsApp-knop</div>
+            <div class="service-feature"><span class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Basis SEO-optimalisatie</div>
+            <div class="service-feature"><span class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Foto's en teksten plaatsen</div>
+          </div>
+          <a href="#contact" class="service-cta">
+            Vraag offerte aan
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div class="service-card featured reveal">
+          <span class="service-badge">Meest gekozen</span>
+          <span class="service-name">Professioneel pakket</span>
+          <h3>Voor groei en uitstraling</h3>
+          <p class="service-desc">Alles uit het Starterspakket, plus extra ruimte om jouw bedrijf echt neer te zetten.</p>
+          <div class="service-features">
+            <div class="service-feature"><span class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Alles uit het Starterspakket</div>
+            <div class="service-feature"><span class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Projecten- en portfoliosectie</div>
+            <div class="service-feature"><span class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Reviews van klanten</div>
+            <div class="service-feature"><span class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Meerdere pagina's op maat</div>
+            <div class="service-feature"><span class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Uitgebreide SEO-basis</div>
+            <div class="service-feature"><span class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Persoonlijk kleur- en stijladvies</div>
+          </div>
+          <a href="#contact" class="service-cta">
+            Vraag offerte aan
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div class="service-card reveal">
+          <span class="service-name">Onderhoud &amp; groei</span>
+          <h3>Abonnement zonder zorgen</h3>
+          <p class="service-desc">Houd je website up-to-date en blijf groeien zonder zelf gedoe te hebben.</p>
+          <div class="service-features">
+            <div class="service-feature"><span class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Reguliere updates</div>
+            <div class="service-feature"><span class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Nieuwe foto's plaatsen</div>
+            <div class="service-feature"><span class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Domein- en hostingbeheer</div>
+            <div class="service-feature"><span class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Kleine aanpassingen op verzoek</div>
+            <div class="service-feature"><span class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Maandelijks opzegbaar</div>
+            <div class="service-feature"><span class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Snelle support per WhatsApp</div>
+          </div>
+          <a href="#contact" class="service-cta">
+            Vraag offerte aan
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+      </div>
+      <p class="services-note reveal">Prijzen op aanvraag — afgestemd op jouw project en wensen.</p>
+    </div>
+  </section>
+
+  <section class="section proces">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-eyebrow">Werkwijze</span>
+        <h2 class="h2">Van eerste idee tot live website</h2>
+        <p class="lead">Een helder traject in vier overzichtelijke stappen.</p>
+      </div>
+      <div class="proces-grid">
+        <div class="proces-step reveal" style="--i:0">
+          <div class="proces-num">1</div>
+          <h3>Kennismaking</h3>
+          <p>Een vrijblijvend gesprek over jouw wensen, doelen en doelgroep.</p>
+        </div>
+        <div class="proces-step reveal" style="--i:1">
+          <div class="proces-num">2</div>
+          <h3>Ontwerp</h3>
+          <p>Een ontwerp op maat dat past bij jouw merk en uitstraling.</p>
+        </div>
+        <div class="proces-step reveal" style="--i:2">
+          <div class="proces-num">3</div>
+          <h3>Bouw</h3>
+          <p>De website wordt gebouwd met focus op snelheid en gebruiksgemak.</p>
+        </div>
+        <div class="proces-step reveal" style="--i:3">
+          <div class="proces-num">4</div>
+          <h3>Oplevering</h3>
+          <p>Na een revisieronde gaat de website live, inclusief uitleg en aftercare.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="over-mij">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-photo-wrap reveal">
+          <div class="about-photo">
+            <img src="mink-foto.png" alt="Mink Knossen — Knossen Webdesign">
+          </div>
+          <div class="about-photo-deco"></div>
+          <div class="about-meta">
+            <div class="about-meta-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="about-meta-name">Mink Knossen</div>
+              <div class="about-meta-role">Westzaan, Noord-Holland</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-text reveal">
+          <span class="section-eyebrow">Over mij</span>
+          <h2 class="h2">Mink Knossen, webdesigner uit Westzaan</h2>
+          <p>Mijn naam is Mink Knossen. Ik combineer een studie rechten in Amsterdam met een passie voor design en ondernemerschap. Vanuit Westzaan bouw ik moderne websites voor ondernemers die zich willen onderscheiden — zonder onnodige technische ballast en zonder dure abonnementen.</p>
+          <p>Wat mij anders maakt? <strong>Persoonlijk contact, eerlijke prijzen en geen verkooppraat.</strong> Geen overbodige features, geen verborgen kosten — gewoon een goede website die werkt voor jouw bedrijf.</p>
+          <div class="about-quote">
+            "Een website is je digitale visitekaartje. Die moet kloppen, vanaf de eerste klik."
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container">
+      <div class="cta-band-inner reveal">
+        <div>
+          <h2 class="h2">Klaar voor een website die werkt?</h2>
+          <p>Neem vrijblijvend contact op — ik denk graag met je mee.</p>
+        </div>
+        <a href="#contact" class="btn btn-primary">
+          Start jouw project
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-eyebrow">Contact</span>
+        <h2 class="h2">Laten we kennismaken</h2>
+        <p class="lead">Vul het formulier in, bel of stuur een WhatsApp. Ik reageer zo snel mogelijk.</p>
+      </div>
+      <div class="contact-grid">
+
+        <div class="contact-info-card reveal">
+          <h3>Direct contact</h3>
+          <p>Liever even bellen of een berichtje sturen? Geen probleem.</p>
+          <div class="contact-info-list">
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <div class="contact-item-label">Telefoon</div>
+                <a href="tel:+31628908062" class="contact-item-value">06 28 90 80 62</a>
+                <span class="contact-item-sub">Ma t/m Vr tot 17:30</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <div class="contact-item-label">E-mail &amp; WhatsApp</div>
+                <a href="mailto:knossenwebdesign@outlook.com" class="contact-item-value">knossenwebdesign@outlook.com</a>
+                <span class="contact-item-sub">Altijd bereikbaar — ik reageer zo snel mogelijk</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <div class="contact-item-label">Adres</div>
+                <span class="contact-item-value">Kerkbuurt 24<br>1551 AD Westzaan</span>
+              </div>
+            </div>
+          </div>
+          <div class="contact-socials">
+            <a href="https://wa.me/31628908062" target="_blank" rel="noopener" class="contact-social" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l.6.952-1.005 3.668 3.785-.999z"/></svg>
+            </a>
+            <a href="mailto:knossenwebdesign@outlook.com" class="contact-social" aria-label="E-mail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+            <a href="tel:+31628908062" class="contact-social" aria-label="Bel mij">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap reveal">
+          <h3>Stuur een bericht</h3>
+          <p>Vertel kort over je project, dan kom ik zo snel mogelijk bij je terug.</p>
+          <form id="contactForm" novalidate>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="name">Naam *</label>
+                <input type="text" id="name" name="name" placeholder="Jouw volledige naam" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Telefoonnummer</label>
+                <input type="tel" id="phone" name="phone" placeholder="06 - 00 00 00 00">
+              </div>
+              <div class="form-group full">
+                <label for="email">E-mailadres *</label>
+                <input type="email" id="email" name="email" placeholder="jouw@email.nl" required>
+              </div>
+              <div class="form-group full">
+                <label for="package">Pakket waar je interesse in hebt</label>
+                <select id="package" name="package">
+                  <option value="">Kies een pakket...</option>
+                  <option value="starter">Starterspakket</option>
+                  <option value="professioneel">Professioneel pakket</option>
+                  <option value="onderhoud">Onderhoud &amp; groei</option>
+                  <option value="anders">Anders / weet ik nog niet</option>
+                </select>
+              </div>
+              <div class="form-group full">
+                <label for="message">Vertel iets over je project *</label>
+                <textarea id="message" name="message" placeholder="Wat voor bedrijf heb je, wat zou je graag op de website willen, en wanneer hoop je live te gaan?" required></textarea>
+              </div>
+            </div>
+            <label class="form-consent">
+              <input type="checkbox" required>
+              <span>Ik ga akkoord met de <a href="algemene-voorwaarden.pdf" target="_blank">algemene voorwaarden</a> en privacyverklaring.</span>
+            </label>
+            <button type="submit" class="btn btn-primary btn-submit">
+              Verstuur bericht
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+            <div class="form-success" id="formSuccess">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Bedankt voor je bericht! Ik neem zo snel mogelijk contact met je op.</span>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="logo.png" alt="Knossen Webdesign">
+          <p>Moderne, snelle websites voor ondernemers en kleine bedrijven in heel Nederland. Persoonlijk en betrouwbaar.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Diensten</div>
+          <div class="footer-links">
+            <a href="#diensten">Starterspakket</a>
+            <a href="#diensten">Professioneel pakket</a>
+            <a href="#diensten">Onderhoud &amp; groei</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Bedrijf</div>
+          <div class="footer-links">
+            <a href="#over-mij">Over mij</a>
+            <a href="#contact">Contact</a>
+            <a href="algemene-voorwaarden.pdf" target="_blank">Algemene voorwaarden</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Contact</div>
+          <div class="footer-links">
+            <a href="tel:+31628908062">06 28 90 80 62</a>
+            <a href="mailto:knossenwebdesign@outlook.com">E-mail</a>
+            <a href="https://wa.me/31628908062" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Knossen Webdesign — Alle rechten voorbehouden</span>
+        <span>Gemaakt met aandacht in Westzaan</span>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/31628908062?text=Hoi%20Mink%2C%20ik%20heb%20een%20vraag%20over%20een%20website" target="_blank" rel="noopener" class="whatsapp-fab" aria-label="Chat via WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zM6.597 20.13c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l.6.952-1.005 3.668 3.785-.999zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.296-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+  </a>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 30);
+    });
+
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    const form = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const required = form.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(f => {
+        if (!f.value || (f.type === 'checkbox' && !f.checked)) valid = false;
+      });
+      if (!valid) {
+        form.reportValidity();
+        return;
+      }
+      formSuccess.classList.add('show');
+      form.querySelector('.btn-submit').style.display = 'none';
+      setTimeout(() => {
+        form.reset();
+        formSuccess.classList.remove('show');
+        form.querySelector('.btn-submit').style.display = '';
+      }, 5000);
+    });
+  </script>
+
+</body>
+</html>
