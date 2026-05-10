@@ -122,6 +122,23 @@
         radial-gradient(ellipse at 0% 70%, rgba(193,116,90,.06) 0%, transparent 55%),
         var(--sand);
     }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background-image: url('regthuys.png');
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-size: cover;
+      opacity: 0.55;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(to right, var(--sand) 25%, rgba(245,239,229,0.7) 50%, rgba(245,239,229,0.2) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero > * { position: relative; z-index: 2; }
     .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 4rem; align-items: center; }
     .hero-tag {
       display: inline-flex; align-items: center; gap: 8px;
@@ -365,7 +382,7 @@
       box-shadow: var(--shadow-lg);
       position: relative; z-index: 1;
     }
-    .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
     .about-photo-deco {
       position: absolute; width: 70%; height: 70%;
       background: var(--olive-soft); border-radius: var(--radius-xl);
@@ -938,7 +955,11 @@
         <div class="contact-form-wrap reveal">
           <h3>Stuur een bericht</h3>
           <p>Vertel kort over je project, dan kom ik zo snel mogelijk bij je terug.</p>
-          <form id="contactForm" novalidate>
+          <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+            <input type="hidden" name="access_key" value="86bcafce-936d-4777-a50f-92cd12bbaa8e">
+            <input type="hidden" name="subject" value="Nieuwe aanvraag via knossenwebdesign.nl">
+            <input type="hidden" name="from_name" value="Knossen Webdesign">
+            <input type="checkbox" name="botcheck" style="display:none">
             <div class="form-grid">
               <div class="form-group">
                 <label for="name">Naam *</label>
@@ -1052,7 +1073,7 @@
 
     const form = document.getElementById('contactForm');
     const formSuccess = document.getElementById('formSuccess');
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', async e => {
       e.preventDefault();
       const required = form.querySelectorAll('[required]');
       let valid = true;
@@ -1063,13 +1084,38 @@
         form.reportValidity();
         return;
       }
-      formSuccess.classList.add('show');
-      form.querySelector('.btn-submit').style.display = 'none';
-      setTimeout(() => {
-        form.reset();
-        formSuccess.classList.remove('show');
-        form.querySelector('.btn-submit').style.display = '';
-      }, 5000);
+      const submitBtn = form.querySelector('.btn-submit');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'Versturen...';
+      submitBtn.disabled = true;
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+        const result = await response.json();
+        if (result.success) {
+          formSuccess.classList.add('show');
+          submitBtn.style.display = 'none';
+          setTimeout(() => {
+            form.reset();
+            formSuccess.classList.remove('show');
+            submitBtn.style.display = '';
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+          }, 5000);
+        } else {
+          alert('Er ging iets mis bij het versturen. Probeer het opnieuw of neem direct contact op via WhatsApp.');
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }
+      } catch (error) {
+        alert('Er ging iets mis bij het versturen. Probeer het opnieuw of neem direct contact op via WhatsApp.');
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
     });
   </script>
 
