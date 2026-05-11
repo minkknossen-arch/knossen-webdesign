@@ -1095,7 +1095,6 @@
         const formData = new FormData(form);
         const response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
-          <script src="cookie-banner.js"></script>
           body: formData
         });
         const result = await response.json();
