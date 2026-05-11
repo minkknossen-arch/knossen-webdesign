@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="nl">
+  <link rel="stylesheet" href="cookie-banner.css">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -615,6 +616,7 @@
       .whatsapp-fab svg { width: 26px; height: 26px; }
     }
   </style>
+<link rel="stylesheet" href="cookie-banner.css">
 </head>
 <body>
 
@@ -990,7 +992,7 @@
             </div>
             <label class="form-consent">
               <input type="checkbox" required>
-              <span>Ik ga akkoord met de <a href="algemene-voorwaarden.pdf" target="_blank">algemene voorwaarden</a> en privacyverklaring.</span>
+              <span>Ik ga akkoord met de <a href="algemene-voorwaarden.html" target="_blank">algemene voorwaarden</a> en <a href="privacyverklaring.html" target="_blank">privacyverklaring</a>.</span>
             </label>
             <button type="submit" class="btn btn-primary btn-submit">
               Verstuur bericht
@@ -1027,7 +1029,8 @@
           <div class="footer-links">
             <a href="#over-mij">Over mij</a>
             <a href="#contact">Contact</a>
-            <a href="algemene-voorwaarden.pdf" target="_blank">Algemene voorwaarden</a>
+            <a href="algemene-voorwaarden.html" target="_blank">Algemene voorwaarden</a>
+            <a href="privacyverklaring.html">Privacyverklaring</a>
           </div>
         </div>
         <div>
@@ -1093,6 +1096,7 @@
         const formData = new FormData(form);
         const response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
+          <script src="cookie-banner.js"></script>
           body: formData
         });
         const result = await response.json();
@@ -1118,6 +1122,6 @@
       }
     });
   </script>
-
+<script src="cookie-banner.js"></script>
 </body>
 </html>
