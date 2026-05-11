@@ -1,0 +1,109 @@
+/* Knossen Webdesign — Cookie Banner CSS (beige/groen thema) */
+
+#kw-cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  padding: 0 1rem 1rem;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  pointer-events: none;
+}
+
+#kw-cookie-banner.kw-visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.kw-cookie-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  box-shadow: 0 -4px 40px rgba(0, 0, 0, 0.1);
+}
+
+.kw-cookie-text strong {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-size: 1rem;
+  color: #1a1a1a;
+}
+
+.kw-cookie-text p {
+  margin: 0.4rem 0 0;
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #5a5349;
+}
+
+.kw-cookie-text a {
+  color: #c4613a;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.kw-cookie-text a:hover {
+  border-bottom-color: #c4613a;
+}
+
+.kw-cookie-buttons {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.kw-btn {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.65rem 1.4rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.kw-btn-accept {
+  background: #c4613a;
+  color: #ffffff;
+}
+
+.kw-btn-accept:hover {
+  background: #b5532e;
+}
+
+.kw-btn-functional {
+  background: rgba(90, 107, 58, 0.08);
+  color: #5a6b3a;
+  border: 1px solid rgba(90, 107, 58, 0.2);
+}
+
+.kw-btn-functional:hover {
+  background: rgba(90, 107, 58, 0.15);
+  color: #4a5a2e;
+}
+
+@media (max-width: 480px) {
+  .kw-cookie-inner {
+    padding: 1.2rem;
+  }
+  .kw-cookie-buttons {
+    flex-direction: column;
+  }
+  .kw-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

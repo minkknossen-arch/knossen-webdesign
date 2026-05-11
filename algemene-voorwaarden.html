@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algemene Voorwaarden — Knossen Webdesign</title>
+<meta name="description" content="Algemene voorwaarden van Knossen Webdesign. Lees hier de voorwaarden die gelden voor al onze diensten.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.knossenwebdesign.nl/algemene-voorwaarden">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap');
+
+:root {
+  --bg-primary: #f5ede4;
+  --bg-secondary: #efe5da;
+  --bg-card: #ffffff;
+  --bg-accent: rgba(90, 100, 60, 0.08);
+  --text-primary: #1a1a1a;
+  --text-secondary: #5a5349;
+  --text-muted: #8a7f74;
+  --accent-green: #5a6b3a;
+  --accent-green-light: #6b7d48;
+  --accent-terracotta: #c4613a;
+  --accent-terracotta-hover: #b5532e;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-accent: rgba(90, 107, 58, 0.2);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1rem 2rem;
+  background: rgba(245, 237, 228, 0.9);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+.nav-logo img { height: 40px; }
+.nav-back {
+  color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;
+  display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s;
+}
+.nav-back:hover { color: var(--accent-terracotta); }
+
+/* HERO */
+.page-hero {
+  padding: 8rem 2rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(90, 107, 58, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.page-hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+.page-hero .subtitle {
+  color: var(--text-secondary); font-size: 1rem;
+}
+.page-hero .date {
+  display: inline-block; margin-top: 1rem;
+  padding: 0.3rem 1rem; border-radius: 100px;
+  background: var(--bg-accent); border: 1px solid var(--border-accent);
+  color: var(--accent-green); font-size: 0.85rem; font-weight: 500;
+}
+
+/* CONTENT */
+.content-wrapper {
+  max-width: 780px; margin: 0 auto; padding: 2rem 2rem 6rem;
+}
+.content-wrapper h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6rem; font-weight: 400;
+  color: var(--text-primary);
+  margin: 3rem 0 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.content-wrapper h2:first-of-type { border-top: none; padding-top: 0; }
+.content-wrapper h3 {
+  font-size: 1.1rem; font-weight: 600;
+  margin: 2rem 0 0.6rem;
+  color: var(--accent-green);
+}
+.content-wrapper p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+.content-wrapper ul, .content-wrapper ol {
+  color: var(--text-secondary);
+  margin: 0.5rem 0 1.5rem 1.5rem;
+}
+.content-wrapper li { margin-bottom: 0.4rem; }
+.content-wrapper a {
+  color: var(--accent-terracotta); text-decoration: none;
+  border-bottom: 1px solid transparent; transition: border-color 0.2s;
+}
+.content-wrapper a:hover { border-bottom-color: var(--accent-terracotta); }
+.content-wrapper strong { color: var(--text-primary); font-weight: 600; }
+.content-wrapper em { color: var(--text-muted); }
+
+/* COOKIE TABLE */
+.cookie-table {
+  width: 100%; border-collapse: collapse; margin: 1rem 0 2rem;
+  font-size: 0.9rem;
+}
+.cookie-table th {
+  text-align: left; padding: 0.75rem 1rem;
+  background: var(--bg-card); color: var(--text-primary);
+  font-weight: 600; border-bottom: 2px solid var(--border-accent);
+}
+.cookie-table td {
+  padding: 0.75rem 1rem; color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+.cookie-table tr:hover td { background: rgba(90, 107, 58, 0.04); }
+.cookie-table code {
+  font-family: 'DM Sans', monospace; font-size: 0.85rem;
+  color: var(--accent-green); background: var(--bg-accent);
+  padding: 0.15rem 0.4rem; border-radius: 4px;
+}
+
+/* FOOTER */
+.legal-footer {
+  text-align: center; padding: 2rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted); font-size: 0.85rem;
+}
+.legal-footer a { color: var(--text-secondary); text-decoration: none; }
+.legal-footer a:hover { color: var(--accent-terracotta); }
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  .nav { padding: 0.8rem 1rem; }
+  .page-hero { padding: 6rem 1.2rem 2rem; }
+  .content-wrapper { padding: 1.5rem 1.2rem 4rem; }
+  .cookie-table { font-size: 0.8rem; }
+  .cookie-table th, .cookie-table td { padding: 0.5rem 0.6rem; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="https://www.knossenwebdesign.nl" class="nav-logo">
+    <img src="https://www.knossenwebdesign.nl/logo.png" alt="Knossen Webdesign">
+  </a>
+  <a href="https://www.knossenwebdesign.nl" class="nav-back">&larr; Terug naar home</a>
+</nav>
+
+<header class="page-hero">
+  <h1>Algemene Voorwaarden</h1>
+  <p class="subtitle">Knossen Webdesign</p>
+  <span class="date">Laatst bijgewerkt: 11 mei 2026</span>
+</header>
+
+<main class="content-wrapper">
+
+  <h2>Artikel 1 &ndash; Definities</h2>
+  <p>In deze algemene voorwaarden wordt verstaan onder:</p>
+  <ol>
+    <li><strong>Knossen Webdesign:</strong> de eenmanszaak van Age Mink Knossen, gevestigd te Westzaan.</li>
+    <li><strong>Opdrachtgever:</strong> iedere natuurlijke persoon of rechtspersoon die gebruikmaakt van de diensten van Knossen Webdesign.</li>
+    <li><strong>Overeenkomst:</strong> iedere afspraak tussen Knossen Webdesign en opdrachtgever met betrekking tot het leveren van diensten.</li>
+    <li><strong>Diensten:</strong> alle werkzaamheden die betrekking hebben op webdesign, webdevelopment, onderhoud, hosting, SEO, support en aanverwante digitale diensten.</li>
+    <li><strong>Meerwerk:</strong> werkzaamheden die buiten de oorspronkelijke opdracht vallen en niet zijn opgenomen in de offerte of overeenkomst.</li>
+  </ol>
+
+  <h2>Artikel 2 &ndash; Toepasselijkheid</h2>
+  <ol>
+    <li>Deze algemene voorwaarden zijn van toepassing op alle offertes, overeenkomsten, werkzaamheden en diensten van Knossen Webdesign.</li>
+    <li>Afwijkingen van deze voorwaarden zijn uitsluitend geldig indien schriftelijk overeengekomen.</li>
+    <li>Door akkoord te gaan met een offerte of opdracht bevestigt opdrachtgever kennis te hebben genomen van deze voorwaarden.</li>
+  </ol>
+
+  <h2>Artikel 3 &ndash; Offertes en overeenkomsten</h2>
+  <ol>
+    <li>Alle offertes zijn vrijblijvend tenzij anders vermeld.</li>
+    <li>Offertes zijn 14 dagen geldig vanaf offertedatum, tenzij anders aangegeven.</li>
+    <li>Een overeenkomst komt tot stand zodra opdrachtgever schriftelijk of digitaal akkoord geeft op een offerte.</li>
+    <li>Knossen Webdesign behoudt zich het recht voor opdrachten te weigeren zonder opgaaf van reden.</li>
+  </ol>
+
+  <h2>Artikel 4 &ndash; Uitvoering van de werkzaamheden</h2>
+  <ol>
+    <li>Knossen Webdesign voert werkzaamheden naar beste inzicht en vermogen uit.</li>
+    <li>Opdrachtgever levert tijdig alle benodigde informatie, teksten, afbeeldingen, inloggegevens en overige materialen aan.</li>
+    <li>Vertraging ontstaan door het niet tijdig aanleveren van informatie komt voor rekening van opdrachtgever.</li>
+    <li>Opdrachtgever is zelf verantwoordelijk voor de juistheid van aangeleverde gegevens.</li>
+  </ol>
+
+  <h2>Artikel 5 &ndash; Betaling</h2>
+  <ol>
+    <li>Facturen dienen binnen 14 dagen na factuurdatum te worden betaald, tenzij anders overeengekomen.</li>
+    <li>Knossen Webdesign hanteert standaard een betalingsstructuur van 50% aanbetaling voorafgaand aan de werkzaamheden en 50% bij oplevering van het eindproduct, tenzij schriftelijk anders overeengekomen.</li>
+    <li>Bij het uitblijven van tijdige betaling is opdrachtgever van rechtswege in verzuim, zonder dat een nadere ingebrekestelling is vereist.</li>
+    <li>Over het openstaande bedrag is opdrachtgever vanaf het moment van verzuim de wettelijke handelsrente verschuldigd conform artikel 6:119a BW.</li>
+    <li>Alle redelijke kosten ter verkrijging van voldoening buiten rechte, waaronder aanmanings- en incassokosten, komen voor rekening van opdrachtgever. De buitengerechtelijke incassokosten worden berekend conform het Besluit vergoeding voor buitengerechtelijke incassokosten.</li>
+    <li>Bij uitblijven van betaling behoudt Knossen Webdesign zich het recht voor werkzaamheden op te schorten en/of de toegang tot de website en bijbehorende diensten te blokkeren tot volledige betaling heeft plaatsgevonden.</li>
+  </ol>
+
+  <h2>Artikel 6 &ndash; Oplevering en revisies</h2>
+  <ol>
+    <li>Een website wordt als opgeleverd beschouwd zodra opdrachtgever schriftelijk akkoord geeft of de website in gebruik neemt.</li>
+    <li>In de opdracht zijn twee revisierondes inbegrepen, tenzij in de offerte anders is vermeld. Een revisieronde omvat redelijke aanpassingen binnen de scope van de oorspronkelijke opdracht.</li>
+    <li>Extra revisies buiten de inbegrepen rondes, of wijzigingen die buiten de oorspronkelijke opdracht vallen, worden aanvullend gefactureerd op basis van een uurtarief van &euro;&nbsp;45,- exclusief btw, tenzij anders overeengekomen.</li>
+    <li>Knossen Webdesign is niet verplicht onbeperkt revisies uit te voeren.</li>
+  </ol>
+
+  <h2>Artikel 7 &ndash; Meerwerk</h2>
+  <ol>
+    <li>Werkzaamheden die buiten de oorspronkelijke opdracht of offerte vallen, worden aangemerkt als meerwerk.</li>
+    <li>Meerwerk wordt vooraf aan opdrachtgever gecommuniceerd, inclusief een inschatting van de bijkomende kosten.</li>
+    <li>Meerwerk wordt pas uitgevoerd na schriftelijk of digitaal akkoord van opdrachtgever.</li>
+    <li>Meerwerk wordt gefactureerd tegen het geldende uurtarief van &euro;&nbsp;45,- exclusief btw, tenzij vooraf een vaste prijs is overeengekomen.</li>
+    <li>Voorbeelden van meerwerk zijn onder meer: extra pagina&rsquo;s, aanvullende functionaliteiten, wijzigingen na oplevering die buiten de revisierondes vallen, en het aanleveren van content door Knossen Webdesign namens opdrachtgever.</li>
+  </ol>
+
+  <h2>Artikel 8 &ndash; Hosting en domeinnamen</h2>
+  <ol>
+    <li>Hosting en domeinregistratie kunnen door Knossen Webdesign worden verzorgd indien overeengekomen.</li>
+    <li>Jaarlijkse kosten voor hosting en domeinen worden vooraf gecommuniceerd.</li>
+    <li>Opdrachtgever blijft verantwoordelijk voor tijdige betaling van hosting- en domeinkosten.</li>
+    <li>De domeinnaam is en blijft eigendom van opdrachtgever. Bij be&euml;indiging van de overeenkomst wordt de domeinnaam overgedragen aan opdrachtgever, mits alle openstaande facturen volledig zijn voldaan.</li>
+    <li>Knossen Webdesign is niet aansprakelijk voor storingen bij externe hostingproviders of registrars.</li>
+  </ol>
+
+  <h2>Artikel 9 &ndash; Onderhoud en support</h2>
+  <ol>
+    <li>Onderhoud wordt uitsluitend uitgevoerd indien dit onderdeel is van een onderhoudsabonnement of afzonderlijke overeenkomst.</li>
+    <li>Onder onderhoud wordt onder meer verstaan: technische updates, beveiligingsupdates, kleine inhoudelijke wijzigingen en back-ups.</li>
+    <li>Grote wijzigingen of uitbreidingen vallen buiten regulier onderhoud en worden als meerwerk behandeld conform artikel 7.</li>
+  </ol>
+
+  <h2>Artikel 10 &ndash; Intellectueel eigendom</h2>
+  <ol>
+    <li>Alle ontwerpen, code, concepten en andere creaties van Knossen Webdesign blijven eigendom van Knossen Webdesign totdat volledige betaling heeft plaatsgevonden.</li>
+    <li>Na volledige betaling verkrijgt opdrachtgever een niet-exclusief, niet-overdraagbaar gebruiksrecht op het eindproduct voor het overeengekomen doel.</li>
+    <li>Het gebruiksrecht vervalt van rechtswege indien opdrachtgever niet aan zijn betalingsverplichtingen voldoet. In dat geval is Knossen Webdesign gerechtigd de website offline te halen totdat volledige betaling heeft plaatsgevonden.</li>
+    <li>Het is opdrachtgever niet toegestaan het ontwerp of de code geheel of gedeeltelijk te verveelvoudigen, openbaar te maken of aan derden ter beschikking te stellen zonder voorafgaande schriftelijke toestemming van Knossen Webdesign.</li>
+    <li>Knossen Webdesign behoudt het recht om gerealiseerde projecten te tonen in portfolio&rsquo;s, social media en promotionele uitingen, tenzij uitdrukkelijk anders overeengekomen.</li>
+    <li>Voor zover bij de uitvoering van de opdracht gebruik wordt gemaakt van software, themes, plugins of stockfoto&rsquo;s van derden, gelden de licentievoorwaarden van de betreffende derden. Knossen Webdesign is niet aansprakelijk voor wijzigingen in of be&euml;indiging van licenties van derden.</li>
+  </ol>
+
+  <h2>Artikel 11 &ndash; Aangeleverde content</h2>
+  <ol>
+    <li>Opdrachtgever is verantwoordelijk voor alle aangeleverde teksten, afbeeldingen, video&rsquo;s en overige content.</li>
+    <li>Opdrachtgever garandeert dat aangeleverde content geen inbreuk maakt op auteursrechten of andere rechten van derden.</li>
+    <li>Knossen Webdesign is niet aansprakelijk voor claims met betrekking tot aangeleverde content.</li>
+  </ol>
+
+  <h2>Artikel 12 &ndash; Aansprakelijkheid</h2>
+  <ol>
+    <li>Knossen Webdesign is uitsluitend aansprakelijk voor directe schade die aantoonbaar het gevolg is van opzet of grove nalatigheid.</li>
+    <li>Knossen Webdesign is niet aansprakelijk voor: omzetverlies, gevolgschade, dataverlies, storingen bij derden en tijdelijke onbereikbaarheid van websites.</li>
+    <li>De aansprakelijkheid is in alle gevallen beperkt tot het factuurbedrag van de betreffende opdracht.</li>
+  </ol>
+
+  <h2>Artikel 13 &ndash; Opschortingsrecht</h2>
+  <ol>
+    <li>Knossen Webdesign is gerechtigd de nakoming van al zijn verplichtingen op te schorten indien opdrachtgever niet, niet tijdig of niet volledig aan zijn betalingsverplichtingen voldoet.</li>
+    <li>Onder opschorting wordt mede verstaan het offline halen of ontoegankelijk maken van de website en het stopzetten van onderhoud, hosting en support.</li>
+    <li>Knossen Webdesign is niet aansprakelijk voor schade die opdrachtgever lijdt als gevolg van opschorting wegens wanbetaling.</li>
+    <li>Opschorting laat de betalingsverplichting van opdrachtgever onverlet.</li>
+  </ol>
+
+  <h2>Artikel 14 &ndash; Overmacht</h2>
+  <ol>
+    <li>Knossen Webdesign is niet gehouden verplichtingen na te komen indien sprake is van overmacht.</li>
+    <li>Onder overmacht wordt mede verstaan: internetstoringen, stroomstoringen, ziekte, storingen bij hostingproviders, cyberaanvallen en overheidsmaatregelen.</li>
+    <li>Indien de overmachtsituatie langer dan 60 dagen voortduurt, hebben beide partijen het recht de overeenkomst schriftelijk te ontbinden, zonder dat partijen over en weer gehouden zijn tot enige schadevergoeding.</li>
+    <li>Reeds uitgevoerde werkzaamheden v&oacute;&oacute;r het intreden van de overmacht worden naar verhouding gefactureerd.</li>
+  </ol>
+
+  <h2>Artikel 15 &ndash; Be&euml;indiging</h2>
+  <ol>
+    <li>Beide partijen kunnen een overeenkomst schriftelijk be&euml;indigen.</li>
+    <li>Reeds uitgevoerde werkzaamheden worden bij be&euml;indiging naar verhouding gefactureerd.</li>
+    <li>Onderhoudsabonnementen kunnen maandelijks worden opgezegd, tenzij anders overeengekomen. Opzegging dient schriftelijk of per e-mail te geschieden.</li>
+    <li>Bij be&euml;indiging wegens wanbetaling door opdrachtgever vervalt het gebruiksrecht op het geleverde en is Knossen Webdesign gerechtigd de website offline te halen.</li>
+  </ol>
+
+  <h2>Artikel 16 &ndash; Privacy</h2>
+  <ol>
+    <li>Knossen Webdesign verwerkt persoonsgegevens uitsluitend voor dienstverlening en communicatie.</li>
+    <li>Persoonsgegevens worden niet verkocht aan derden.</li>
+    <li>Meer informatie staat in de <a href="https://www.knossenwebdesign.nl/privacyverklaring.html">privacy- en cookieverklaring</a> op www.knossenwebdesign.nl.</li>
+  </ol>
+
+  <h2>Artikel 17 &ndash; Toepasselijk recht en geschillen</h2>
+  <ol>
+    <li>Op alle overeenkomsten is Nederlands recht van toepassing.</li>
+    <li>Geschillen worden bij voorkeur in onderling overleg opgelost. Indien dit niet tot een oplossing leidt, worden geschillen voorgelegd aan de bevoegde rechter in het arrondissement Noord-Holland.</li>
+  </ol>
+
+  <p style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.9rem;">
+    <strong style="color: var(--text-secondary);">Knossen Webdesign</strong><br>
+    Kerkbuurt 24, 1551 AD Westzaan<br>
+    <a href="mailto:knossenwebdesign@outlook.com">knossenwebdesign@outlook.com</a> &middot; <a href="tel:+31628908062">06 28908062</a><br>
+    <a href="https://www.knossenwebdesign.nl">www.knossenwebdesign.nl</a>
+  </p>
+
+</main>
+
+<footer class="legal-footer">
+  <p>&copy; 2026 Knossen Webdesign &mdash; <a href="https://www.knossenwebdesign.nl/privacyverklaring.html">Privacyverklaring</a> &middot; <a href="https://www.knossenwebdesign.nl">Home</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacyverklaring & Cookieverklaring — Knossen Webdesign</title>
+<meta name="description" content="Privacyverklaring en cookieverklaring van Knossen Webdesign. Lees hier hoe wij omgaan met uw persoonsgegevens en cookies.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.knossenwebdesign.nl/privacyverklaring">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap');
+
+:root {
+  --bg-primary: #f5ede4;
+  --bg-secondary: #efe5da;
+  --bg-card: #ffffff;
+  --bg-accent: rgba(90, 100, 60, 0.08);
+  --text-primary: #1a1a1a;
+  --text-secondary: #5a5349;
+  --text-muted: #8a7f74;
+  --accent-green: #5a6b3a;
+  --accent-green-light: #6b7d48;
+  --accent-terracotta: #c4613a;
+  --accent-terracotta-hover: #b5532e;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-accent: rgba(90, 107, 58, 0.2);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1rem 2rem;
+  background: rgba(245, 237, 228, 0.9);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+.nav-logo img { height: 40px; }
+.nav-back {
+  color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;
+  display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s;
+}
+.nav-back:hover { color: var(--accent-terracotta); }
+
+/* HERO */
+.page-hero {
+  padding: 8rem 2rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(90, 107, 58, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.page-hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+.page-hero .subtitle {
+  color: var(--text-secondary); font-size: 1rem;
+}
+.page-hero .date {
+  display: inline-block; margin-top: 1rem;
+  padding: 0.3rem 1rem; border-radius: 100px;
+  background: var(--bg-accent); border: 1px solid var(--border-accent);
+  color: var(--accent-green); font-size: 0.85rem; font-weight: 500;
+}
+
+/* CONTENT */
+.content-wrapper {
+  max-width: 780px; margin: 0 auto; padding: 2rem 2rem 6rem;
+}
+.content-wrapper h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6rem; font-weight: 400;
+  color: var(--text-primary);
+  margin: 3rem 0 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.content-wrapper h2:first-of-type { border-top: none; padding-top: 0; }
+.content-wrapper h3 {
+  font-size: 1.1rem; font-weight: 600;
+  margin: 2rem 0 0.6rem;
+  color: var(--accent-green);
+}
+.content-wrapper p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+.content-wrapper ul, .content-wrapper ol {
+  color: var(--text-secondary);
+  margin: 0.5rem 0 1.5rem 1.5rem;
+}
+.content-wrapper li { margin-bottom: 0.4rem; }
+.content-wrapper a {
+  color: var(--accent-terracotta); text-decoration: none;
+  border-bottom: 1px solid transparent; transition: border-color 0.2s;
+}
+.content-wrapper a:hover { border-bottom-color: var(--accent-terracotta); }
+.content-wrapper strong { color: var(--text-primary); font-weight: 600; }
+.content-wrapper em { color: var(--text-muted); }
+
+/* COOKIE TABLE */
+.cookie-table {
+  width: 100%; border-collapse: collapse; margin: 1rem 0 2rem;
+  font-size: 0.9rem;
+}
+.cookie-table th {
+  text-align: left; padding: 0.75rem 1rem;
+  background: var(--bg-card); color: var(--text-primary);
+  font-weight: 600; border-bottom: 2px solid var(--border-accent);
+}
+.cookie-table td {
+  padding: 0.75rem 1rem; color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+.cookie-table tr:hover td { background: rgba(90, 107, 58, 0.04); }
+.cookie-table code {
+  font-family: 'DM Sans', monospace; font-size: 0.85rem;
+  color: var(--accent-green); background: var(--bg-accent);
+  padding: 0.15rem 0.4rem; border-radius: 4px;
+}
+
+/* FOOTER */
+.legal-footer {
+  text-align: center; padding: 2rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted); font-size: 0.85rem;
+}
+.legal-footer a { color: var(--text-secondary); text-decoration: none; }
+.legal-footer a:hover { color: var(--accent-terracotta); }
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  .nav { padding: 0.8rem 1rem; }
+  .page-hero { padding: 6rem 1.2rem 2rem; }
+  .content-wrapper { padding: 1.5rem 1.2rem 4rem; }
+  .cookie-table { font-size: 0.8rem; }
+  .cookie-table th, .cookie-table td { padding: 0.5rem 0.6rem; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="https://www.knossenwebdesign.nl" class="nav-logo">
+    <img src="https://www.knossenwebdesign.nl/logo.png" alt="Knossen Webdesign">
+  </a>
+  <a href="https://www.knossenwebdesign.nl" class="nav-back">&larr; Terug naar home</a>
+</nav>
+
+<header class="page-hero">
+  <h1>Privacyverklaring</h1>
+  <p class="subtitle">Knossen Webdesign</p>
+  <span class="date">Laatst bijgewerkt: 11 mei 2026</span>
+</header>
+
+<main class="content-wrapper">
+
+  <p>Knossen Webdesign, gevestigd aan Kerkbuurt 24, 1551 AD Westzaan, is verantwoordelijk voor de verwerking van persoonsgegevens zoals weergegeven in deze privacyverklaring.</p>
+
+  <h3>Contactgegevens</h3>
+  <p>Knossen Webdesign<br>
+  Kerkbuurt 24, 1551 AD Westzaan<br>
+  <a href="mailto:knossenwebdesign@outlook.com">knossenwebdesign@outlook.com</a><br>
+  <a href="tel:+31628908062">06 28908062</a><br>
+  <a href="https://www.knossenwebdesign.nl">www.knossenwebdesign.nl</a></p>
+  <p><em>Age Mink Knossen is de functionaris gegevensbescherming van Knossen Webdesign. Hij is te bereiken via bovenstaand e-mailadres.</em></p>
+
+  <h2>Welke persoonsgegevens verwerken wij?</h2>
+  <p>Knossen Webdesign verwerkt persoonsgegevens doordat u gebruik maakt van onze diensten en/of omdat u deze gegevens zelf aan ons verstrekt.</p>
+
+  <h3>Gegevens die u actief aan ons verstrekt</h3>
+  <ul>
+    <li>Voor- en achternaam</li>
+    <li>Bedrijfsnaam</li>
+    <li>Adresgegevens</li>
+    <li>Telefoonnummer</li>
+    <li>E-mailadres</li>
+    <li>KVK-nummer</li>
+    <li>Btw-identificatienummer</li>
+    <li>Bankrekeningnummer (IBAN) voor facturatie</li>
+  </ul>
+
+  <h3>Gegevens die automatisch worden verzameld</h3>
+  <ul>
+    <li>IP-adres</li>
+    <li>Browsertype en -versie</li>
+    <li>Apparaatgegevens</li>
+    <li>Klikgedrag en surfgedrag op onze website</li>
+    <li>Datum en tijd van uw bezoek</li>
+  </ul>
+
+  <h2>Waarvoor verwerken wij uw gegevens?</h2>
+  <ul>
+    <li>Het afhandelen van betalingen</li>
+    <li>Het uitvoeren van de overeenkomst: het ontwerpen, bouwen en onderhouden van uw website</li>
+    <li>Het versturen van offertes, facturen en overige zakelijke correspondentie</li>
+    <li>Contact opnemen per telefoon, e-mail of WhatsApp indien dit nodig is voor de dienstverlening</li>
+    <li>Het informeren over wijzigingen in onze diensten</li>
+    <li>Het analyseren van websitebezoek om onze website te verbeteren</li>
+  </ul>
+
+  <h2>Op welke grondslag verwerken wij uw gegevens?</h2>
+  <p>Knossen Webdesign verwerkt uw persoonsgegevens op basis van de volgende grondslagen uit de Algemene Verordening Gegevensbescherming (AVG):</p>
+  <ol>
+    <li><strong>Uitvoering van een overeenkomst</strong> &ndash; wanneer verwerking noodzakelijk is voor de uitvoering van een opdracht (art. 6 lid 1 sub b AVG).</li>
+    <li><strong>Wettelijke verplichting</strong> &ndash; bijvoorbeeld voor het bewaren van factuurgegevens conform fiscale wetgeving (art. 6 lid 1 sub c AVG).</li>
+    <li><strong>Gerechtvaardigd belang</strong> &ndash; voor het verbeteren van onze dienstverlening en website, mits uw privacy niet onevenredig wordt geschaad (art. 6 lid 1 sub f AVG).</li>
+    <li><strong>Toestemming</strong> &ndash; wanneer u uitdrukkelijk toestemming hebt gegeven, bijvoorbeeld voor het plaatsen van analytische of marketingcookies (art. 6 lid 1 sub a AVG).</li>
+  </ol>
+
+  <h2>Hoe lang bewaren wij uw gegevens?</h2>
+  <ul>
+    <li>Klantgegevens (naam, adres, contactgegevens): gedurende de looptijd van de overeenkomst en tot twee jaar na be&euml;indiging</li>
+    <li>Factuurgegevens: zeven jaar conform de fiscale bewaarplicht (art. 52 AWR)</li>
+    <li>Websitestatistieken en analytische gegevens: maximaal 26 maanden</li>
+    <li>Correspondentie: twee jaar na afronding van de opdracht</li>
+  </ul>
+
+  <h2>Delen met derden</h2>
+  <p>Knossen Webdesign verkoopt uw gegevens niet aan derden en verstrekt deze uitsluitend aan derden indien dit noodzakelijk is voor de uitvoering van de overeenkomst of om te voldoen aan een wettelijke verplichting.</p>
+  <p>Wij kunnen gebruikmaken van de volgende diensten van derden:</p>
+  <ul>
+    <li><strong>Hostingprovider</strong> &ndash; voor het hosten van uw website</li>
+    <li><strong>Moneybird</strong> &ndash; voor boekhoudkundige verwerking en facturatie</li>
+    <li><strong>Google Analytics</strong> &ndash; voor het analyseren van websitebezoek (alleen indien u hiervoor toestemming geeft)</li>
+  </ul>
+  <p>Met bedrijven die uw gegevens verwerken in onze opdracht sluiten wij een verwerkersovereenkomst om te zorgen voor eenzelfde niveau van beveiliging en vertrouwelijkheid van uw gegevens.</p>
+
+  <h2>Beveiliging van persoonsgegevens</h2>
+  <p>Knossen Webdesign neemt de bescherming van uw gegevens serieus en neemt passende maatregelen om misbruik, verlies, onbevoegde toegang, ongewenste openbaarmaking en ongeoorloofde wijziging tegen te gaan. Hieronder vallen onder meer:</p>
+  <ul>
+    <li>SSL-versleuteling (HTTPS) op al onze websites</li>
+    <li>Beveiligde opslag van klantgegevens</li>
+    <li>Regelmatige back-ups</li>
+    <li>Sterke wachtwoorden en tweefactorauthenticatie waar mogelijk</li>
+  </ul>
+  <p>Als u het idee hebt dat uw gegevens toch niet goed beveiligd zijn of er aanwijzingen zijn van misbruik, neem dan contact met ons op via <a href="mailto:knossenwebdesign@outlook.com">knossenwebdesign@outlook.com</a>.</p>
+
+  <h2>Uw rechten</h2>
+  <p>Op grond van de AVG heeft u de volgende rechten met betrekking tot uw persoonsgegevens:</p>
+  <ol>
+    <li><strong>Recht op inzage</strong> &ndash; u kunt opvragen welke gegevens wij van u verwerken.</li>
+    <li><strong>Recht op rectificatie</strong> &ndash; u kunt verzoeken om onjuiste gegevens te corrigeren.</li>
+    <li><strong>Recht op verwijdering</strong> &ndash; u kunt verzoeken om uw gegevens te laten verwijderen.</li>
+    <li><strong>Recht op beperking van de verwerking</strong> &ndash; u kunt verzoeken dat wij de verwerking van uw gegevens beperken.</li>
+    <li><strong>Recht op dataportabiliteit</strong> &ndash; u kunt verzoeken om uw gegevens in een gangbaar formaat te ontvangen.</li>
+    <li><strong>Recht van bezwaar</strong> &ndash; u kunt bezwaar maken tegen de verwerking van uw gegevens.</li>
+  </ol>
+  <p>U kunt een verzoek sturen naar <a href="mailto:knossenwebdesign@outlook.com">knossenwebdesign@outlook.com</a>. Wij reageren zo snel mogelijk, maar uiterlijk binnen vier weken.</p>
+  <p>Knossen Webdesign wil u er tevens op wijzen dat u de mogelijkheid heeft om een klacht in te dienen bij de nationale toezichthouder, de <a href="https://www.autoriteitpersoonsgegevens.nl" target="_blank" rel="noopener">Autoriteit Persoonsgegevens</a>.</p>
+
+  <h2>Wijzigingen privacyverklaring</h2>
+  <p>Knossen Webdesign behoudt zich het recht voor deze privacyverklaring aan te passen. Wijzigingen worden gepubliceerd op onze website. Wij adviseren u daarom regelmatig deze verklaring te raadplegen.</p>
+
+  <!-- ============ COOKIEVERKLARING ============ -->
+
+  <h2 id="cookies" style="margin-top:4rem; padding-top:3rem; border-top: 2px solid var(--border-accent);">Cookieverklaring</h2>
+  <p style="color: var(--accent-green); font-size: 0.9rem; margin-bottom: 1.5rem;"><em>Laatst bijgewerkt: 11 mei 2026</em></p>
+
+  <h3>Wat zijn cookies?</h3>
+  <p>Cookies zijn kleine tekstbestanden die tijdens een bezoek aan een website op uw apparaat (computer, tablet of smartphone) worden geplaatst. Met cookies kan een website goed functioneren en kan informatie worden opgeslagen over het gebruik van de website.</p>
+
+  <h3>1. Functionele cookies (noodzakelijk)</h3>
+  <p>Deze cookies zijn noodzakelijk om de website goed te laten functioneren. Ze worden geplaatst zonder uw toestemming, omdat de website zonder deze cookies niet correct kan werken.</p>
+  <p>Voorbeelden: correcte weergave op verschillende apparaten, navigatie op de website, beveiligingsinstellingen, onthouden van cookievoorkeuren.</p>
+  <p><em>Toestemming vereist: nee</em></p>
+
+  <h3>2. Analytische cookies</h3>
+  <p>Knossen Webdesign kan analytische cookies gebruiken om inzicht te krijgen in het gebruik van de website. Deze cookies worden alleen geplaatst na uw uitdrukkelijke toestemming.</p>
+  <p>Wat wordt er gemeten: aantal bezoekers, bezochte pagina&rsquo;s, tijd doorgebracht op de website, herkomst van bezoekers, apparaat- en browserinformatie.</p>
+  <p><strong>Dienst:</strong> Google Analytics (indien ingeschakeld). IP-adressen worden geanonimiseerd. Er is een verwerkersovereenkomst met Google afgesloten. Gegevens worden niet gedeeld met Google voor advertentiedoeleinden.</p>
+  <p><em>Toestemming vereist: ja</em></p>
+
+  <h3>3. Marketingcookies</h3>
+  <p>Indien van toepassing kunnen marketingcookies worden gebruikt om advertenties of social media-integraties te ondersteunen. Deze cookies worden uitsluitend geplaatst na uw uitdrukkelijke toestemming.</p>
+  <p>Voorbeelden: social media deelknoppen (Facebook, Instagram, LinkedIn), embedded content van externe platforms (YouTube, Google Maps).</p>
+  <p><em>Toestemming vereist: ja</em></p>
+
+  <h3>Overzicht van cookies</h3>
+  <table class="cookie-table">
+    <thead>
+      <tr><th>Cookie</th><th>Type</th><th>Bewaartermijn</th><th>Doel</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>cookie_consent</code></td><td>Functioneel</td><td>12 maanden</td><td>Onthoudt uw cookievoorkeuren</td></tr>
+      <tr><td><code>_ga</code></td><td>Analytisch</td><td>26 maanden</td><td>Google Analytics &ndash; onderscheidt bezoekers</td></tr>
+      <tr><td><code>_ga_[ID]</code></td><td>Analytisch</td><td>26 maanden</td><td>Google Analytics &ndash; bewaart sessiestatus</td></tr>
+      <tr><td><code>_gid</code></td><td>Analytisch</td><td>24 uur</td><td>Google Analytics &ndash; onderscheidt bezoekers</td></tr>
+    </tbody>
+  </table>
+  <p><em>Dit overzicht wordt bijgewerkt wanneer er cookies worden toegevoegd of verwijderd.</em></p>
+
+  <h3>Uw toestemming</h3>
+  <p>Bij uw eerste bezoek aan onze website wordt u gevraagd om toestemming te geven voor het plaatsen van niet-functionele cookies. U kunt hierbij per categorie aangeven welke cookies u accepteert.</p>
+  <p>U kunt uw toestemming op elk moment intrekken door uw cookievoorkeuren aan te passen via de cookiebanner op onze website, of door uw cookies te verwijderen via uw browserinstellingen.</p>
+
+  <h3>Cookies beheren of verwijderen</h3>
+  <p>U kunt cookies verwijderen of blokkeren via de instellingen van uw browser:</p>
+  <ul>
+    <li><strong>Google Chrome:</strong> Instellingen &gt; Privacy en beveiliging &gt; Cookies</li>
+    <li><strong>Safari:</strong> Voorkeuren &gt; Privacy</li>
+    <li><strong>Firefox:</strong> Instellingen &gt; Privacy &amp; Beveiliging &gt; Cookies</li>
+    <li><strong>Microsoft Edge:</strong> Instellingen &gt; Cookies en sitemachtigingen</li>
+  </ul>
+  <p><strong>Let op:</strong> het blokkeren van cookies kan ervoor zorgen dat onderdelen van de website minder goed functioneren.</p>
+
+  <h3>Externe diensten</h3>
+  <p>Knossen Webdesign kan gebruikmaken van externe diensten die eigen cookies kunnen plaatsen: Google Analytics, Google Maps, WhatsApp (chatwidget), social media-integraties (Facebook, Instagram, LinkedIn) en embedded content (YouTube-video&rsquo;s). Deze partijen hebben hun eigen privacy- en cookiebeleid. Knossen Webdesign is niet verantwoordelijk voor het cookiebeleid van deze externe partijen.</p>
+
+  <h3>Wijzigingen cookieverklaring</h3>
+  <p>Knossen Webdesign behoudt zich het recht voor deze cookieverklaring aan te passen. Wijzigingen worden gepubliceerd op onze website. De datum bovenaan deze verklaring geeft aan wanneer deze voor het laatst is bijgewerkt.</p>
+
+  <h3>Contact</h3>
+  <p>Heeft u vragen over deze cookieverklaring? Neem dan contact met ons op:</p>
+  <p>Knossen Webdesign<br>
+  Kerkbuurt 24, 1551 AD Westzaan<br>
+  <a href="mailto:knossenwebdesign@outlook.com">knossenwebdesign@outlook.com</a><br>
+  <a href="tel:+31628908062">06 28908062</a></p>
+
+</main>
+
+<footer class="legal-footer">
+  <p>&copy; 2026 Knossen Webdesign &mdash; <a href="https://www.knossenwebdesign.nl/algemene-voorwaarden.html">Algemene voorwaarden</a> &middot; <a href="https://www.knossenwebdesign.nl">Home</a></p>
+</footer>
+
+</body>
+</html>
