@@ -440,6 +440,81 @@ a { color: var(--olive-dark); }
 .stap h3 { font-size: 19px; margin-bottom: 8px; }
 .stap p { font-size: 14.5px; color: var(--muted); }
 
+/* ---------- recent werk ---------- */
+.werk { background: var(--cream-deep); }
+.werk-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+.werk-kaart {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none;
+  background: var(--olive-deep);
+  box-shadow: var(--shadow-soft);
+  transition: transform .3s ease, box-shadow .3s ease, opacity .7s ease;
+}
+.werk-kaart.in-beeld:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+.werk-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s ease;
+}
+.werk-kaart:hover .werk-media { transform: scale(1.05); }
+.werk-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 30px 30px 28px;
+  color: #fff;
+  background: linear-gradient(to top,
+    rgba(30, 34, 20, 0.88) 0%,
+    rgba(30, 34, 20, 0.55) 34%,
+    rgba(30, 34, 20, 0.1) 62%,
+    rgba(30, 34, 20, 0) 100%);
+}
+.werk-overlay h3 { color: #fff; font-size: 25px; }
+.werk-overlay > p {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 14.5px;
+  max-width: 90%;
+  margin-bottom: 4px;
+}
+.werk-tag {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  padding: 5px 13px;
+}
+.werk-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #fff;
+}
+.werk-link svg { transition: transform .2s ease; }
+.werk-kaart:hover .werk-link svg { transform: translate(3px, -3px); }
+
 /* ---------- over mij ---------- */
 .over-grid {
   display: grid;
@@ -763,7 +838,7 @@ a { color: var(--olive-dark); }
 
 /* ---------- responsief ---------- */
 @media (max-width: 920px) {
-  .pakketten, .onderhoud-grid, .over-grid, .contact-grid, .footer-grid { grid-template-columns: 1fr; }
+  .pakketten, .onderhoud-grid, .over-grid, .contact-grid, .footer-grid, .werk-grid { grid-template-columns: 1fr; }
   .stappen { grid-template-columns: 1fr 1fr; }
   .over-grid { gap: 40px; }
   .over-foto { max-width: 380px; }
